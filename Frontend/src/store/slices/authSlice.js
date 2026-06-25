@@ -7,8 +7,8 @@ const MOCK_USERS = {
   "branchadmin@restopro.in": "branch_admin",
 };
 
-const SUPER_ADMIN_URL  = "http://localhost:5173"; 
-const BRANCH_ADMIN_URL = "http://localhost:5174"; 
+const SUPER_ADMIN_URL  = "https://resto-pos-scsg.vercel.app"; 
+const BRANCH_ADMIN_URL = "https://resto-pos-lyart.vercel.app"; 
 
 const storedUser = (() => {
   try { return JSON.parse(localStorage.getItem("authUser")); }
@@ -84,9 +84,9 @@ export const verifyOtp = (email, otp) => async (dispatch) => {
 
     dispatch(verifyOtpSuccess({ email, role }));
     if (role === "super_admin") {
-      window.location.href = `${SUPER_ADMIN_URL}/super-admin/dashboard`;
+      window.location.href = `https://${SUPER_ADMIN_URL}/super-admin/dashboard`;
     } else if (role === "branch_admin") {
-      window.location.href = `${BRANCH_ADMIN_URL}/branch-admin/dashboard`;
+      window.location.href = `https://${BRANCH_ADMIN_URL}/branch-admin/dashboard`;
     }
 
     return { success: true, role };
