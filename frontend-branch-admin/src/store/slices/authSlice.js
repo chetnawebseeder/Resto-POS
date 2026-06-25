@@ -8,7 +8,7 @@ const MOCK_USERS = {
 };
 
 const SUPER_ADMIN_URL  = "http://localhost:5173";
-const BRANCH_ADMIN_URL = "http://localhost:5174";
+const BRANCH_ADMIN_URL = "http://localhost:5175";
 
 const storedUser = (() => {
   try { return JSON.parse(localStorage.getItem("authUser")); }
