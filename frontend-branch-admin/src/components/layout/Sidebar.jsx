@@ -20,7 +20,7 @@ const MENU = [
   ]}
 ];
 
-export default function Sidebar({ isOpen, closeSidebar }) {
+const Sidebar = ({ isOpen, closeSidebar }) => {
   const dispatch  = useDispatch();
   const navigate  = useNavigate();
   const { email } = useSelector((s) => s.auth);
@@ -103,3 +103,4 @@ export default function Sidebar({ isOpen, closeSidebar }) {
     </>
   );
 }
+export default Sidebar

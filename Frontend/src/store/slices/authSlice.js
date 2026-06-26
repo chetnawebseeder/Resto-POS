@@ -3,16 +3,15 @@ import { createSlice } from "@reduxjs/toolkit";
 const FIXED_OTP = "123456";
 
 const MOCK_USERS = {
-  "superadmin@restopro.in":  "super_admin",
-  "branchadmin@restopro.in": "branch_admin",
+  "superadmin@restopro.in": "super_admin",
 };
 
-const SUPER_ADMIN_URL  = "https://resto-pos-scsg.vercel.app"; 
-const BRANCH_ADMIN_URL = "https://resto-pos-lyart.vercel.app"; 
-
 const storedUser = (() => {
-  try { return JSON.parse(localStorage.getItem("authUser")); }
-  catch { return null; }
+  try {
+    return JSON.parse(localStorage.getItem("superAdminAuth"));
+  } catch {
+    return null;
+  }
 })();
 
 const initialState = {
@@ -39,7 +38,7 @@ const authSlice = createSlice({
       state.isAuthenticated = true;
       state.email           = action.payload.email;
       state.role            = action.payload.role;
-      localStorage.setItem("authUser", JSON.stringify({
+      localStorage.setItem("superAdminAuth", JSON.stringify({
         email: action.payload.email,
         role:  action.payload.role,
       }));
@@ -49,7 +48,7 @@ const authSlice = createSlice({
       state.isAuthenticated = false;
       state.email           = null;
       state.role            = null;
-      localStorage.removeItem("authUser");
+      localStorage.removeItem("superAdminAuth");
     },
   },
 });
@@ -83,12 +82,6 @@ export const verifyOtp = (email, otp) => async (dispatch) => {
     if (!role) throw new Error("Email not authorized.");
 
     dispatch(verifyOtpSuccess({ email, role }));
-    if (role === "super_admin") {
-      window.location.href = `https://${SUPER_ADMIN_URL}/super-admin/dashboard`;
-    } else if (role === "branch_admin") {
-      window.location.href = `https://${BRANCH_ADMIN_URL}/branch-admin/dashboard`;
-    }
-
     return { success: true, role };
   } catch (err) {
     dispatch(verifyOtpFailure(err.message));

@@ -2,8 +2,9 @@ import { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Utensils, Mail, Send, CheckCircle2, ArrowLeft, Loader2 } from "lucide-react";
 import { sendOtp, verifyOtp } from "../../store/slices/authSlice";
-
-export default function Login() {
+import { useNavigate} from "react-router-dom";
+const Login = () => {
+  const navigate = useNavigate();
   const dispatch = useDispatch();
   const { loading, error: reduxError } = useSelector((state) => state.auth);
 
@@ -43,14 +44,14 @@ export default function Login() {
     }
   };
   const handleVerify = async (e) => {
-    e.preventDefault();
-    setError("");
-    const result = await dispatch(verifyOtp(email, otp.join("")));
-    if (!result.success) {
-      setError("Invalid OTP. Please try again.");
-    }
-  };
-
+  e.preventDefault();
+  const result = await dispatch(verifyOtp(email, otp.join("")));
+  if (result.success) {
+    navigate("/super-admin/dashboard");
+  } else {
+    setError("Invalid OTP. Please try again.");
+  }
+};
   return (
     <div className="min-h-screen flex bg-slate-50">
       <div className="hidden lg:flex lg:w-1/2 relative bg-slate-900 text-white flex-col justify-between p-12 overflow-hidden">
@@ -225,3 +226,6 @@ function Footer() {
     </p>
   );
 }
+
+export default Login
+
