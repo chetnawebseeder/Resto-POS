@@ -11,15 +11,15 @@ const AddItem = ({ isOpen, onClose, onSave, categories }) => {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-600">Item Name</label>
-              <input name="name" className="w-full p-2.5 border rounded-lg" required />
+              <input name="name" className="w-full p-2.5 border border-slate-300 focus:ring-2 focus:ring-orange-500 outline-none rounded-lg" placeholder='Paneer Tikka' required />
             </div>
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-600">Price (₹)</label>
-              <input name="price" type="number" className="w-full p-2.5 border rounded-lg" required />
+              <input name="price" type="number" className="w-full p-2.5 border border-slate-300 focus:ring-2 focus:ring-orange-500 outline-none rounded-lg" placeholder='50' required />
             </div>
             <div className="space-y-1">
               <label className="text-sm font-medium text-gray-600">Category</label>
-              <select name="category" className="w-full p-2.5 border rounded-lg">
+              <select name="category" className="w-full p-2.5 border border-slate-300 focus:ring-2 focus:ring-orange-500 outline-none rounded-lg">
                 {categories.filter(c => c.name !== 'All').map(c => (
                   <option key={c.name} value={c.name}>{c.name}</option>
                 ))}
@@ -28,8 +28,8 @@ const AddItem = ({ isOpen, onClose, onSave, categories }) => {
           </div>
           
           <div className="flex justify-end gap-3">
-            <button type="button" onClick={onClose} className="px-6 py-2 border rounded-lg">Cancel</button>
-            <button type="submit" className="px-6 py-2 bg-orange-600 text-white rounded-lg">Save Item</button>
+            <button type="button" onClick={onClose} className="px-6 py-2 border rounded-lg ">Cancel</button>
+            <button type="submit" className="px-6 py-2 bg-orange-600 text-white rounded-lg hover:bg-slate-800 transition-colors">Save Item</button>
           </div>
         </form>
       </div>

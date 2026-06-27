@@ -17,6 +17,9 @@ const MENU = [
   ]},
   { section: "HR", items: [
       { label: "Staff", icon: Users, path: "/branch-admin/staff" }
+  ]},
+  { section: "ANALYTICS", items: [ 
+      { label: "Reports", icon: FileText, path: "/branch-admin/reports" }
   ]}
 ];
 

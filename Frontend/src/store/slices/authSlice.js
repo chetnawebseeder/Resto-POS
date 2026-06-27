@@ -1,7 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const FIXED_OTP = "123456";
-
 const MOCK_USERS = {
   "superadmin@restopro.in": "super_admin",
 };

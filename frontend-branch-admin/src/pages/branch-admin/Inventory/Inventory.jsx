@@ -1,13 +1,5 @@
 import { useState, useMemo } from "react";
-import {
-  Plus,
-  AlertTriangle,
-  Layers,
-  Boxes,
-  Truck,
-  Download,
-  X,
-} from "lucide-react";
+import {Plus, AlertTriangle, Layers, Boxes, Truck, Download, X} from "lucide-react";
 
 const CATEGORY_STYLES = {
   Grains: "border-blue-200 bg-blue-50 text-blue-600",
@@ -19,7 +11,6 @@ const CATEGORY_STYLES = {
 const DEFAULT_CATEGORY_STYLE = "border-slate-200 bg-slate-50 text-slate-600";
 
 const UNITS = ["kg", "ltr", "pcs", "g", "ml", "box"];
-
 const CATEGORIES = ["Grains", "Meat", "Dairy", "Vegetables", "Oils"];
 
 const INITIAL_PRODUCTS = [
@@ -151,7 +142,7 @@ const InventoryManagement = () => {
         </div>
         <button
           onClick={() => setFormOpen(true)}
-          className="flex items-center justify-center gap-2 rounded-lg bg-orange-500 px-4 py-2.5 text-sm font-semibold text-white shadow-sm transition-colors hover:bg-orange-600 sm:self-start"
+          className="flex items-center justify-center gap-2 rounded-lg bg-orange-500 px-4 py-2.5 text-sm font-semibold text-white  hover:bg-orange-600 sm:self-start"
         >
           <Plus className="h-4 w-4" />
           Add Product
@@ -271,14 +262,14 @@ const InventoryManagement = () => {
                   value={form.name}
                   onChange={(e) => updateField("name", e.target.value)}
                   placeholder="e.g. Basmati Rice"
-                  className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:border-orange-400 focus:ring-1 focus:ring-orange-300"
+                  className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </Field>
               <Field label="Category" error={errors.category}>
                 <select
                   value={form.category}
                   onChange={(e) => updateField("category", e.target.value)}
-                  className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:border-orange-400 focus:ring-1 focus:ring-orange-300"
+                  className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-orange-500"
                 >
                   <option value="" disabled>
                     Select category
@@ -294,7 +285,7 @@ const InventoryManagement = () => {
                 <select
                   value={form.unit}
                   onChange={(e) => updateField("unit", e.target.value)}
-                  className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:border-orange-400 focus:ring-1 focus:ring-orange-300"
+                  className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-orange-500"
                 >
                   {UNITS.map((u) => (
                     <option key={u} value={u}>
@@ -312,7 +303,7 @@ const InventoryManagement = () => {
                     value={form.stock}
                     onChange={(e) => updateField("stock", e.target.value)}
                     placeholder="0"
-                    className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:border-orange-400 focus:ring-1 focus:ring-orange-300"
+                    className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-orange-500"
                   />
                 </Field>
                 <Field label="Min Level" error={errors.minLevel}>
@@ -322,7 +313,7 @@ const InventoryManagement = () => {
                     value={form.minLevel}
                     onChange={(e) => updateField("minLevel", e.target.value)}
                     placeholder="0"
-                    className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:border-orange-400 focus:ring-1 focus:ring-orange-300"
+                    className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-orange-500"
                   />
                 </Field>
               </div>
@@ -333,11 +324,9 @@ const InventoryManagement = () => {
                   value={form.buyPrice}
                   onChange={(e) => updateField("buyPrice", e.target.value)}
                   placeholder="0"
-                  className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:border-orange-400 focus:ring-1 focus:ring-orange-300"
+                  className="w-full rounded-lg border border-slate-200 px-3 py-2 text-sm text-slate-900 outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </Field>
-
-              <p className="text-xs text-slate-400">SKU will be generated automatically based on category.</p>
 
               <div className="flex gap-3 pt-2">
                 <button
@@ -349,7 +338,7 @@ const InventoryManagement = () => {
                 </button>
                 <button
                   type="submit"
-                  className="flex-1 rounded-lg bg-orange-500 py-2.5 text-sm font-bold text-white hover:bg-orange-600"
+                  className="flex-1 rounded-lg bg-orange-500 py-2.5 text-sm font-bold text-white hover:bg-slate-800 transition-colors"
                 >
                   Add Product
                 </button>

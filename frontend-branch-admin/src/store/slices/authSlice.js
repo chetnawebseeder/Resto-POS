@@ -82,7 +82,6 @@ export const {
   logout,
 } = authSlice.actions;
 
-// Send OTP
 export const sendOtp = (email) => async (dispatch) => {
   dispatch(sendOtpStart());
 
@@ -104,7 +103,6 @@ export const sendOtp = (email) => async (dispatch) => {
   }
 };
 
-// Verify OTP
 export const verifyOtp = (email, otp) => async (dispatch) => {
   dispatch(verifyOtpStart());
 

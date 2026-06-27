@@ -112,8 +112,6 @@ const Login = () => {
                   className="w-full pl-10 pr-4 py-3 rounded-lg border border-slate-200 bg-white text-slate-800 focus:outline-none focus:ring-2 focus:ring-orange-500"
                 />
               </div>
-
-              {/* Email error */}
               {reduxError && (
                 <p className="mt-2 text-sm text-red-500">{reduxError}</p>
               )}

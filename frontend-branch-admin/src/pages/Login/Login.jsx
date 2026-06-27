@@ -1,13 +1,6 @@
 import { useState, useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import {
-  Utensils,
-  Mail,
-  Send,
-  CheckCircle2,
-  ArrowLeft,
-  Loader2,
-} from "lucide-react";
+import {  Utensils, Mail, Send, CheckCircle2, ArrowLeft, Loader2 } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { sendOtp, verifyOtp } from "../../store/slices/authSlice";
 
@@ -84,7 +77,6 @@ const Login = () => {
 
   return (
     <div className="min-h-screen flex bg-slate-50">
-      {/* Left Section */}
       <div className="hidden lg:flex lg:w-1/2 relative bg-slate-900 text-white flex-col justify-between p-12 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-slate-900 via-slate-900/95 to-slate-900/80" />
 
@@ -124,8 +116,6 @@ const Login = () => {
           </p>
         </div>
       </div>
-
-      {/* Right Section */}
       <div className="w-full lg:w-1/2 flex items-center justify-center p-6">
         <div className="w-full max-w-sm">
           {step === "email" ? (
@@ -226,7 +216,7 @@ const Login = () => {
                     onKeyDown={(e) =>
                       handleOtpKeyDown(index, e)
                     }
-                    className="w-12 h-12 text-center text-lg font-semibold border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none"
+                    className="w-12 h-12 text-center text-lg font-semibold border rounded-lg focus:ring-2 focus:ring-orange-500 outline-none border border-slate-300"
                   />
                 ))}
               </div>
