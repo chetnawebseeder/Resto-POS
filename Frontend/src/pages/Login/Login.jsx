@@ -156,6 +156,7 @@ const Login = () => {
                     ref={(el) => (inputRefs.current[i] = el)}
                     type="text"
                     inputMode="numeric"
+                     placeholder={String(index + 1)}
                     maxLength={1}
                     value={digit}
                     onChange={(e) => handleOtpChange(i, e.target.value)}

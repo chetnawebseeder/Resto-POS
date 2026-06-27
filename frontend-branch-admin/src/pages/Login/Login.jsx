@@ -208,6 +208,7 @@ const Login = () => {
                     ref={(el) => (inputRefs.current[index] = el)}
                     type="text"
                     inputMode="numeric"
+                     placeholder={String(index + 1)}
                     maxLength={1}
                     value={digit}
                     onChange={(e) =>
