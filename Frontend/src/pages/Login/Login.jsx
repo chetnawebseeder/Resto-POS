@@ -150,17 +150,17 @@ const Login = () => {
                 Enter OTP
               </label>
               <div className="flex gap-3">
-                {otp.map((digit, i) => (
+                {otp.map((digit, index) => (
                   <input
-                    key={i}
-                    ref={(el) => (inputRefs.current[i] = el)}
+                    key={index}
+                    ref={(el) => (inputRefs.current[index] = el)}
                     type="text"
                     inputMode="numeric"
                      placeholder={String(index + 1)}
                     maxLength={1}
                     value={digit}
-                    onChange={(e) => handleOtpChange(i, e.target.value)}
-                    onKeyDown={(e) => handleOtpKeyDown(i, e)}
+                    onChange={(e) => handleOtpChange(index, e.target.value)}
+                    onKeyDown={(e) => handleOtpKeyDown(index, e)}
                     className={`w-12 h-12 text-center text-lg font-semibold rounded-lg border bg-white focus:outline-none focus:ring-2 focus:ring-orange-500 transition-colors ${
                       digit ? "border-orange-500 bg-orange-50" : "border-slate-200"
                     }`}
